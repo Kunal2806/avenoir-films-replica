@@ -2,14 +2,48 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
 
   const navLinks = [
     { href: '/work', label: 'Work' },
-    { href: '/about', label: 'About' },
+    { href: '/#about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
+
+  const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    // If we're already on the home page, just scroll
+    if (pathname === '/') {
+      const aboutSection = document.getElementById('about');
+      
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    } else {
+      // If on another page, navigate to home first
+      router.push('/');
+      
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const aboutSection = document.getElementById('about');
+        
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <nav>
@@ -28,7 +62,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-foreground "
+                onClick={link.label === 'About' ? handleAboutClick : undefined}
+                className="text-sm font-semibold text-foreground"
               >
                 {link.label}
               </Link>

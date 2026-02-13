@@ -1,6 +1,5 @@
 import About from "@/components/About";
 import Collaborators from "@/components/Collaborators";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import LetsShoot from "@/components/LetsShoot";
 import WhatMakeUs from "@/components/WhatMakeUs";
@@ -15,7 +14,6 @@ export default function HomePage() {
       <WhatWeDo />
       <WhatMakeUs/>
       <LetsShoot />
-      <Footer/>
     </main>
   );
 }

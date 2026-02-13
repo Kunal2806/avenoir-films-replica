@@ -1,6 +1,10 @@
 import About from "@/components/About";
 import Collaborators from "@/components/Collaborators";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import LetsShoot from "@/components/LetsShoot";
+import WhatMakeUs from "@/components/WhatMakeUs";
+import WhatWeDo from "@/components/WhatWeDo";
 
 export default function HomePage() {
   return (
@@ -8,6 +12,10 @@ export default function HomePage() {
       <Hero/>
       <About/>
       <Collaborators/>
+      <WhatWeDo />
+      <WhatMakeUs/>
+      <LetsShoot />
+      <Footer/>
     </main>
   );
 }

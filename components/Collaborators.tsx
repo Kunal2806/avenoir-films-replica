@@ -31,78 +31,93 @@ export default function Collaborators() {
 
     return (
         <div className="w-full bg-background text-foreground">
-            {/* Collaborators Section */}
-            <div className="w-full flex flex-col justify-center items-center py-32">
-                <h1 className="w-[90%] text-6xl text-center mb-20 font-light">
-                    Avenoir collaborates with brands and agencies to turn good ideas into stellar content
-                </h1>
-                <div className="max-w-7xl mx-auto">
-                    {/* Row 1 */}
-                    <div className="grid grid-cols-6 gap-12 mb-16 items-center justify-items-center">
-                        {logos.slice(0, 6).map((logo, index) => (
-                            <img
-                                key={index}
-                                src={logo.src}
-                                alt={logo.name}
-                                className="h-26 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                            />
-                        ))}
-                    </div>
-
-                    {/* Row 2 */}
-                    <div className="grid grid-cols-6 gap-12 mb-16 items-center justify-items-center">
-                        {logos.slice(6, 12).map((logo, index) => (
-                            <img
-                                key={index}
-                                src={logo.src}
-                                alt={logo.name}
-                                className="h-26 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                            />
-                        ))}
-                    </div>
-
-                    {/* Row 3 */}
-                    <div className="grid grid-cols-6 gap-12 items-center justify-items-center">
-                        {logos.slice(12, 18).map((logo, index) => (
-                            <img
-                                key={index}
-                                src={logo.src}
-                                alt={logo.name}
-                                className="h-26 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-                            />
-                        ))}
-                    </div>
-                </div>
+    {/* Collaborators Section */}
+    <div className="w-full flex flex-col justify-center items-center py-20 md:py-32 px-6 md:px-0">
+        <h1 className="w-full max-w-[90%] md:w-[70%] text-3xl md:text-5xl text-center font-serif font-extrabold mb-16 md:mb-20">
+            Avenoir collaborates with brands and agencies to turn good ideas into stellar content
+        </h1>
+        <div className="max-w-7xl mx-auto px-4 md:px-0 w-full">
+            {/* Logo Grid - 3 cols below md, keep original 3 rows of 6 cols at md+ */}
+            <div className="md:hidden grid grid-cols-3 gap-8 items-center justify-items-center">
+                {logos.map((logo, index) => (
+                    <img
+                        key={index}
+                        src={logo.src}
+                        alt={logo.name}
+                        className="h-20 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    />
+                ))}
             </div>
-
-            {/* Video Grid Section */}
-            <div className="relative w-full max-w-6xl mx-auto pb-32">
-                <div className="grid grid-cols-2 gap-6 px-8">
-                    {videos.map((video, index) => (
-                        <div 
-                            key={index} 
-                            className="relative aspect-video overflow-hidden rounded-[2rem] group cursor-pointer"
-                        >
-                            <video
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                src={video.src}
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-background/10 transition-colors duration-300" />
-                        </div>
+            
+            {/* Original 3 rows layout for md and above */}
+            <div className="hidden md:block">
+                {/* Row 1 */}
+                <div className="grid grid-cols-6 gap-12 mb-16 items-center justify-items-center">
+                    {logos.slice(0, 6).map((logo, index) => (
+                        <img
+                            key={index}
+                            src={logo.src}
+                            alt={logo.name}
+                            className="h-26 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                        />
                     ))}
                 </div>
 
-                {/* See Our Work Button */}
-                <div className="flex justify-center mt-12">
-                    <button className="px-10 py-4 bg-foreground text-background font-medium text-sm tracking-wide rounded-sm hover:bg-background hover:text-muted-foreground transition-colors duration-300 uppercase">
-                        See Our Work
-                    </button>
+                {/* Row 2 */}
+                <div className="grid grid-cols-6 gap-12 mb-16 items-center justify-items-center">
+                    {logos.slice(6, 12).map((logo, index) => (
+                        <img
+                            key={index}
+                            src={logo.src}
+                            alt={logo.name}
+                            className="h-26 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                        />
+                    ))}
+                </div>
+
+                {/* Row 3 */}
+                <div className="grid grid-cols-6 gap-12 items-center justify-items-center">
+                    {logos.slice(12, 18).map((logo, index) => (
+                        <img
+                            key={index}
+                            src={logo.src}
+                            alt={logo.name}
+                            className="h-26 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                        />
+                    ))}
                 </div>
             </div>
         </div>
+    </div>
+
+    {/* Video Grid Section */}
+    <div className="relative w-full max-w-6xl mx-auto pb-20 md:pb-32 px-6 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {videos.map((video, index) => (
+                <div 
+                    key={index} 
+                    className="relative aspect-video overflow-hidden rounded-2xl md:rounded-[2rem] group cursor-pointer"
+                >
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        src={video.src}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-background/10 transition-colors duration-300" />
+                </div>
+            ))}
+        </div>
+
+        {/* See Our Work Button */}
+        <div className="flex justify-center mt-10 md:mt-12">
+            <button className="px-8 md:px-10 py-3 md:py-4 bg-foreground text-background font-medium text-sm tracking-wide rounded-sm hover:bg-background hover:text-muted-foreground transition-colors duration-300 uppercase">
+                See Our Work
+            </button>
+        </div>
+    </div>
+</div>
     );
 }

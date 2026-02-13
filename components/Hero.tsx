@@ -29,10 +29,10 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/30" />
 
             <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-foreground px-4">
-                <h1 className="text-7xl font-display tracking-tight">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold tracking-wide">
                     avenoir.
                 </h1>
-                <p className="mt-4 text-lg max-w-2xl font-sans">
+                <p className="m-4 text-sm max-w-2xl font-light tracking-wide">
                     commercials, Films & Digital Content Production Company
                 </p>
             </div>
